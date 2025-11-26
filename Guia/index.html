@@ -151,4 +151,132 @@
         }
 
         footer {
-            background-color: var
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+        
+        footer a { color: var(--secondary); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>Rioblanco</h1>
+            <p>Descubre la Ruta "Memorias Vivas"</p>
+            <a href="#mapa" class="btn-cta">Ver Mapa Interactivo</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div id="mapa" class="map-section">
+            <h3 style="margin-top: 0; text-align: center; border: none;">🗺️ Explora el Territorio</h3>
+            <iframe 
+                src="https://maps.google.com/maps?q=Rioblanco,+Tolima&t=k&z=14&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="450" 
+                style="border:0; border-radius: 10px;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            <p style="text-align: center; font-size: 0.8rem; color: #666; margin-top: 10px;">
+                <i class="fas fa-info-circle"></i> Navega por el mapa para ver los puntos de interés validados.
+            </p>
+        </div>
+
+        <h3 style="text-align: center; border: none; font-size: 2rem; margin-bottom: 0;">Nuestras Experiencias</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-img img-nature"></div>
+                <div class="card-body">
+                    <span class="badge badge-open">Disponible</span>
+                    <h2>🌿 Conexión Natural</h2>
+                    <p>Una experiencia de paz, meditación y paisajes inolvidables.</p>
+                    <ul>
+                        <li><strong>Parroquia María Auxiliadora:</strong> Historia y arquitectura.</li>
+                        <li><strong>La Gruta:</strong> Sendero ecológico.</li>
+                        <li><strong>Hogar Sagrada Familia:</strong> Retiros y silencio.</li>
+                        <li><strong>La Roca:</strong> Descanso y piscinas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img img-culture"></div>
+                <div class="card-body">
+                    <span class="badge badge-open">Disponible con Novedades</span>
+                    <h2>🏛️ Huellas Culturales</h2>
+                    <p>Camina por nuestra historia de resiliencia en el casco urbano.</p>
+                    <ul>
+                        <li><strong>Parque Principal:</strong> Árbol de la Vida.</li>
+                        <li><strong>Casa de la Cultura:</strong> Arte y memoria local.</li>
+                    </ul>
+                    <div class="note">
+                        <i class="fas fa-hard-hat"></i> <strong>Nota al viajero:</strong> 
+                        Parque Principal en obras. Transita con precaución.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img img-food"></div>
+                <div class="card-body">
+                    <span class="badge badge-open">Gastronomía</span>
+                    <h2>🍲 Sabores de mi Tierra</h2>
+                    <p>Disfruta la auténtica sazón tolimense.</p>
+                    <ul>
+                        <li><strong>Ricuras Hamanixi:</strong> Sancocho y platos típicos.</li>
+                        <li><strong>Entre Granos:</strong> El mejor café de la región.</li>
+                        <li><strong>Recomendado:</strong> Tamal Tolimense.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="opacity: 0.8;">
+                <div class="card-img img-coffee"></div>
+                <div class="card-body">
+                    <span class="badge badge-soon">Próximamente</span>
+                    <h2>☕ Ruta del Café</h2>
+                    <p>Estamos preparando una experiencia agroturística única.</p>
+                    <p style="font-size: 0.9rem; color: #666;">
+                        Proceso de selección de fincas en curso.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="background: white; padding: 2rem; border-radius: 15px; margin-top: 3rem; text-align: center;">
+            <h2 style="color: var(--dark);">📝 Tips para tu Visita</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 1.5rem;">
+                <div style="max-width: 200px;">
+                    <i class="fas fa-tshirt" style="font-size: 2rem; color: var(--accent);"></i>
+                    <p>Ropa cómoda y zapatos de agarre.</p>
+                </div>
+                <div style="max-width: 200px;">
+                    <i class="fas fa-cloud-sun" style="font-size: 2rem; color: var(--accent);"></i>
+                    <p>Lleva hidratación y protector solar.</p>
+                </div>
+                <div style="max-width: 200px;">
+                    <i class="fas fa-money-bill-wave" style="font-size: 2rem; color: var(--accent);"></i>
+                    <p>Lleva efectivo (zonas rurales).</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>Proyecto FONTUR Tolima - Rioblanco</strong><br>
+        Gestión y Validación Técnica: Ing. Joshua Sebastián Cárdenas Carrero</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">© 2025 Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
