@@ -131,6 +131,35 @@
             color: #7f8c8d;
         }
 
+        /* ESTILOS DEL BOTÓN DE LA GUÍA (INTEGRADO) */
+        .boton-seccion {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(to right, var(--primary), #3498db);
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .boton-seccion:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to right, #34495e, #2980b9);
+        }
+
+        .btn-container {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+            margin-top: 2rem;
+        }
+
         @media (max-width: 768px) {
             header h1 { font-size: 1.8rem; }
             .container { padding: 1rem; }
@@ -138,7 +167,8 @@
     </style>
 </head>
 
-<body> <header>
+<body> 
+    <header>
         <h1>Informe de Ejecución</h1>
         <h2>Verificación de Rutas Turísticas - Rioblanco, Tolima</h2>
         <div class="badge">PROYECTO FONTUR TOLIMA</div>
@@ -162,7 +192,7 @@
 
     <div class="container">
         
-       <div class="card">
+        <div class="card">
             <h3>Resumen Ejecutivo</h3>
             <p>Este informe digital presenta los resultados de la validación en campo realizada durante noviembre de 2025. El objetivo fue auditar la viabilidad operativa, logística y de infraestructura de las rutas propuestas para el municipio, asegurando una experiencia real y segura para el turista.</p>
         </div>
@@ -255,36 +285,18 @@
             <small>Noviembre 2025</small>
         </div>
 
-    </div>
-  <style>
-  /* Estilos para el botón bonito */
-  .boton-seccion {
-    display: inline-block; /* Permite que tenga padding y se comporte bien */
-    padding: 12px 20px;    /* Espacio interno (arriba/abajo - izquierda/derecha) */
-    font-size: 16px;       /* Tamaño de letra */
-    font-weight: bold;     /* Letra en negrita */
-    color: #ffffff;        /* Color del texto (blanco) */
-    background-color: #007bff; /* Color de fondo (azul bonito) */
-    text-decoration: none; /* Quita el subrayado del enlace */
-    border-radius: 8px;    /* Esquinas redondeadas */
-    border: none;          /* Quita cualquier borde */
-    cursor: pointer;       /* Muestra una manito al pasar el mouse */
-    
-    /* Una pequeña sombra para que resalte */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
-    /* Transición suave para el efecto hover */
-    transition: background-color 0.3s ease;
-  }
+        <div class="btn-container">
+            <p style="font-size: 1.1rem; color: var(--primary);">
+                Para ver la propuesta visual y comercial de estas rutas, acceda a la guía interactiva:
+            </p>
+            <a href="Guia/" class="boton-seccion">Ir a Guía Turística ➜</a>
+        </div>
 
-  /* Efecto al pasar el mouse por encima */
-  .boton-seccion:hover {
-    background-color: #0056b3; /* Un azul un poco más oscuro */
-  }
-</style>
+    </div>
+
     <footer>
         <p>Documento de carácter informativo para la gestión del proyecto FONTUR Tolima.</p>
     </footer>
-<a href="Guia/" class="boton-seccion">Ir a Guia</a>
+
 </body>
 </html>
