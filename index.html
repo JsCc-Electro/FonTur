@@ -3,410 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rioblanco: Informe & Guía Turística</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Informe Técnico Final | Contrato FONTUR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* --- CONFIGURACIÓN DE COLORES VIBRANTES --- */
+        /* --- ESTILOS DE DOCUMENTO OFICIAL --- */
         :root {
-            --brand-primary: #00695c;   /* Verde Esmeralda Profundo */
-            --brand-secondary: #ff6f00; /* Naranja Vibrante */
-            --brand-accent: #d81b60;    /* Magenta/Rojo para detalles */
-            --brand-dark: #263238;      /* Gris Oscuro */
-            --light-bg: #f1f8e9;        /* Fondo muy suave */
-            --white: #ffffff;
+            --doc-bg: #e0e5ec;
+            --paper-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #5f6c7b;
+            --accent-blue: #0f4c81; /* Azul Clásico Institucional */
+            --alert-red: #c0392b;
+            --alert-orange: #d35400;
+            --success-green: #27ae60;
+            --border-color: #d1d8e0;
         }
 
-        /* --- ESTILOS GENERALES --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--light-bg);
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--doc-bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem 0;
             line-height: 1.6;
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        /* EL "PAPEL" DEL INFORME */
+        .document-sheet {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--paper-bg);
+            padding: 3rem 4rem; /* Márgenes amplios como un documento real */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            border-top: 8px solid var(--accent-blue);
+        }
 
-        /* --- HEADER HERO (PORTADA) --- */
+        /* ENCABEZADO */
         header {
-            background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
-            color: var(--white);
-            padding: 4rem 1rem;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-        }
-
-        header .badge {
-            background-color: var(--brand-secondary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 10px rgba(255, 111, 0, 0.4);
-        }
-
-        /* --- BOTONES DE NAVEGACIÓN --- */
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: -30px; /* Sube sobre el header */
-            position: relative;
-            z-index: 10;
-        }
-
-        .nav-btn {
-            background: var(--white);
-            color: var(--brand-primary);
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, background 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-btn:hover { transform: translateY(-5px); color: var(--brand-secondary); }
-        .nav-btn.active { background: var(--brand-secondary); color: white; }
-
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .main-container {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        /* --- SECCIÓN 1: INFORME TÉCNICO (Dashboard Style) --- */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .tech-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-top: 5px solid #ccc;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .tc-green { border-color: var(--brand-primary); }
-        .tc-orange { border-color: var(--brand-secondary); }
-        .tc-red { border-color: var(--brand-accent); }
-
-        .tech-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; }
-        .tech-status { font-size: 0.8rem; padding: 3px 8px; border-radius: 4px; color: white; }
-        
-        .st-ok { background: var(--brand-primary); }
-        .st-warn { background: var(--brand-secondary); }
-        .st-err { background: var(--brand-accent); }
-
-        /* --- SEPARADOR VISUAL --- */
-        .separator {
-            text-align: center;
-            margin: 4rem 0;
-            position: relative;
-        }
-        .separator h2 {
-            background: var(--light-bg);
-            display: inline-block;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-            color: var(--brand-dark);
-            text-transform: uppercase;
-        }
-        .separator::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #ddd;
-            z-index: 1;
-        }
-
-        /* --- SECCIÓN 2: GUÍA TURÍSTICA (Visual Style) --- */
-        .guide-hero {
-            position: relative;
-            height: 300px;
-            border-radius: 20px;
-            overflow: hidden;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
             margin-bottom: 2rem;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .guide-bg {
-            position: absolute; top:0; left:0; width:100%; height:100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rioblanco_Tolima.jpg/1200px-Rioblanco_Tolima.jpg') center/cover;
-            filter: brightness(0.6);
-            transition: transform 10s;
-        }
-        .guide-hero:hover .guide-bg { transform: scale(1.1); } /* Efecto Zoom */
-
-        .guide-title {
-            position: relative; z-index: 2; color: white; text-align: center;
-        }
-        .guide-title h2 { font-size: 3rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin: 0; }
-
-        /* TARJETAS TURÍSTICAS */
-        .tour-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
-        .tour-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        .tour-card:hover { transform: translateY(-10px); }
-
-        .card-img {
-            height: 200px;
-            background-color: #eee;
-            background-size: cover;
-            background-position: center;
-            position: relative;
+        .doc-title h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* IMÁGENES SEGURAS */
-        .img-r1 { background-image: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=600'); }
-        .img-r2 { background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600'); filter: grayscale(100%); }
-        .img-r3 { background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600'); }
-        .img-food { background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600'); }
-
-        .price-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
+        .doc-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-weight: 500;
         }
 
-        .card-body { padding: 1.5rem; }
-        .card-body h3 { color: var(--brand-primary); margin-bottom: 0.5rem; }
-        .card-body ul { padding-left: 20px; font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
-        
-        .btn-card {
-            display: block;
-            width: 100%;
+        .doc-meta {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* SECCIONES */
+        section { margin-bottom: 3rem; }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 15px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-top: 1.5rem;
+            font-weight: 600;
+            background: #f8f9fa;
             padding: 10px;
-            text-align: center;
-            background: var(--brand-primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.3s;
+            border-radius: 4px;
         }
-        .btn-card:hover { background: var(--brand-dark); }
-        .btn-disabled { background: #999; pointer-events: none; }
 
-        /* FOOTER */
-        footer {
-            background: var(--brand-dark);
+        p { margin-bottom: 1rem; text-align: justify; }
+
+        /* TABLAS TÉCNICAS */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-table th {
+            background-color: var(--accent-blue);
             color: white;
-            text-align: center;
-            padding: 3rem;
+            padding: 12px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .tech-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .tech-table tr:last-child td { border-bottom: none; }
+        .tech-table tr:nth-child(even) { background-color: #f9fbfd; }
+
+        /* ESTADOS */
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .bg-green { background: #e8f5e9; color: #1b5e20; border: 1px solid #c8e6c9; }
+        .bg-orange { background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .bg-red { background: #ffebee; color: #b71c1c; border: 1px solid #ffcdd2; }
+
+        /* CAJAS DE HALLAZGOS */
+        .finding-box {
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            border-left: 4px solid;
+        }
+        .finding-critical {
+            background-color: #fff5f5;
+            border-color: var(--alert-red);
+            color: #900;
+        }
+        .finding-warning {
+            background-color: #fffbf0;
+            border-color: var(--alert-orange);
+            color: #8a6d3b;
+        }
+
+        /* MAPA */
+        .map-container {
+            border: 1px solid var(--border-color);
+            padding: 4px;
+            background: #fff;
+            margin-top: 1rem;
+        }
+
+        /* PIE DE PÁGINA */
+        .signature-block {
             margin-top: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .sign-line {
+            border-top: 1px solid #000;
+            width: 300px;
+            padding-top: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* BOTÓN DISCRETO AL ANEXO */
+        .annex-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            border: 1px solid var(--accent-blue);
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+        .annex-link:hover { background: var(--accent-blue); color: white; }
+
+        @media (max-width: 768px) {
+            .document-sheet { padding: 1.5rem; width: 95%; }
+            header { flex-direction: column; align-items: flex-start; }
+            .doc-meta { text-align: left; margin-top: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="badge">Informe de Ejecución 2025</div>
-        <h1>Proyecto FONTUR - Rioblanco</h1>
-        <p>Auditoría Técnica y Propuesta de Producto Turístico</p>
-    </header>
-
-    <div class="nav-container">
-        <a href="#informe" class="nav-btn"><i class="fas fa-file-contract"></i> Informe Técnico</a>
-        <a href="#guia" class="nav-btn active"><i class="fas fa-map-marked-alt"></i> Guía Turística</a>
-    </div>
-
-    <div class="main-container">
-
-        <section id="informe">
-            <h2 style="color: var(--brand-dark); border-left: 5px solid var(--brand-primary); padding-left: 15px;">
-                Estado de Cumplimiento Contractual
-            </h2>
-            <p style="margin-top: 10px; color: #666;">
-                Resumen ejecutivo de la validación de campo realizada en noviembre de 2025. Se auditaron las 3 rutas propuestas identificando hallazgos críticos.
-            </p>
-
-            <div class="dashboard-grid">
-                <div class="tech-card tc-orange">
-                    <div class="tech-title">
-                        Ruta 1: Cultural
-                        <span class="tech-status st-warn">Restringida</span>
-                    </div>
-                    <ul style="font-size: 0.9rem;">
-                        <li><strong>Estado:</strong> Validada con Novedades.</li>
-                        <li><strong>Hallazgo:</strong> Obras en Parque Principal bloquean accesos.</li>
-                        <li><strong>Acción:</strong> Se cambió el cierre a "La Roca".</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card tc-red">
-                    <div class="tech-title">
-                        Ruta 2: Café
-                        <span class="tech-status st-err">Pendiente</span>
-                    </div>
-                    <ul style="font-size: 0.9rem;">
-                        <li><strong>Estado:</strong> No Operativa.</li>
-                        <li><strong>Hallazgo:</strong> Fincas sin baños ni cocina para turistas.</li>
-                        <li><strong>Acción:</strong> Detener comercialización hasta formalizar.</li>
-                    </ul>
-                </div>
-
-                <div class="tech-card tc-green">
-                    <div class="tech-title">
-                        Ruta 3: Religiosa
-                        <span class="tech-status st-ok">Operativa 100%</span>
-                    </div>
-                    <ul style="font-size: 0.9rem;">
-                        <li><strong>Estado:</strong> Validada y Mejorada.</li>
-                        <li><strong>Hallazgo:</strong> Se encontraron 3 nuevos atractivos.</li>
-                        <li><strong>Acción:</strong> Lista para lanzamiento.</li>
-                    </ul>
-                </div>
+    <div class="document-sheet">
+        
+        <header>
+            <div class="doc-title">
+                <h1>Informe de Ejecución y Resultados</h1>
+                <div class="doc-subtitle">Contrato de Prestación de Servicios - Proyecto FONTUR Tolima</div>
             </div>
+            <div class="doc-meta">
+                <strong>Código:</strong> INF-EJEC-001<br>
+                <strong>Fecha de Corte:</strong> Noviembre 25, 2025<br>
+                <strong>Lugar:</strong> Rioblanco, Tolima
+            </div>
+        </header>
+
+        <section>
+            <h2>1. Información Contractual</h2>
+            <table class="tech-table">
+                <tr>
+                    <th width="30%">Contratista</th>
+                    <td><strong>Ing. Joshua Sebastián Cárdenas Carrero</strong><br>C.C. 1.010.049.536</td>
+                </tr>
+                <tr>
+                    <th>Objeto Contractual</th>
+                    <td>Verificación técnica, validación operativa y registro fotográfico de rutas turísticas en el municipio de Rioblanco.</td>
+                </tr>
+                <tr>
+                    <th>Supervisor</th>
+                    <td>Beta Group Colombia SAS (Representante Legal: Roberto García Betancur)</td>
+                </tr>
+            </table>
         </section>
 
-        <div class="separator">
-            <h2>Propuesta Visual del Producto</h2>
-        </div>
+        <section>
+            <h2>2. Resumen Ejecutivo de Auditoría</h2>
+            <p>
+                En cumplimiento de las obligaciones contractuales, se procedió a realizar el recorrido de campo bajo la metodología de "Cliente Incógnito" y auditoría técnica. El objetivo fue validar la existencia real, accesibilidad y capacidad operativa de los puntos de interés descritos en el insumo preliminar.
+            </p>
+            <p>
+                <strong>Resultado General:</strong> Se valida la operatividad parcial del producto turístico. Se identificaron <strong>restricciones críticas de infraestructura</strong> en la Ruta 1 y <strong>carencia de proveedores aptos</strong> en la Ruta 2. Por otro lado, se logró enriquecer sustancialmente la Ruta 3 con nuevos activos turísticos no contemplados inicialmente.
+            </p>
+        </section>
 
-        <section id="guia">
-            
-            <div class="guide-hero">
-                <div class="guide-bg"></div>
-                <div class="guide-title">
-                    <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: bold;">Descubre</p>
-                    <h2>Memorias Vivas</h2>
-                    <p>Rioblanco, Tolima</p>
-                </div>
+        <section>
+            <h2>3. Validación Técnica de Rutas</h2>
+
+            <h3>3.1. Ruta 1: "Huellas Culturales" (Casco Urbano)</h3>
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Estado Técnico</th>
+                        <th>Observación / Incidencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Acceso Parque Principal</td>
+                        <td><span class="badge bg-orange">Restringido</span></td>
+                        <td>Obras de mejoramiento urbano activas. Cerramiento perimetral impide el tránsito turístico fluido y la visualización del 'Árbol de la Vida'.</td>
+                    </tr>
+                    <tr>
+                        <td>Logística de Cierre</td>
+                        <td><span class="badge bg-red">No Conforme</span></td>
+                        <td>El acceso a "Charco El Toro" presenta una vía rústica de alta pendiente, riesgosa en temporada invernal. No cumple criterios de seguridad.</td>
+                    </tr>
+                    <tr>
+                        <td>Mitigación</td>
+                        <td><span class="badge bg-green">Resuelto</span></td>
+                        <td>Se gestionó y validó el cambio de cierre hacia el <strong>Centro Recreativo La Roca</strong>, garantizando accesibilidad vehicular y servicios.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.2. Ruta 2: "Agroturística" (Experiencia Café)</h3>
+            <div class="finding-box finding-critical">
+                <strong><i class="fas fa-exclamation-triangle"></i> HALLAZGO CRÍTICO: INVIABILIDAD OPERATIVA ACTUAL</strong>
+                <br><br>
+                Tras la inspección en campo, se determina que la ruta se encuentra en estado <strong>PENDIENTE</strong>. El insumo inicial no especificaba predios (fincas).
+                <br><br>
+                <ul>
+                    <li>No se identificaron fincas cafeteras con infraestructura sanitaria (baños) apta para turistas.</li>
+                    <li>No existen áreas certificadas para manipulación de alimentos en los predios visitados.</li>
+                    <li><strong>Acción Requerida:</strong> Suspender comercialización hasta ejecutar plan de mejoramiento con productores locales.</li>
+                </ul>
             </div>
 
-            <div style="background: white; padding: 1rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 3rem;">
-                <h3 style="text-align: center; color: var(--brand-primary); margin-bottom: 1rem;">🗺️ Mapa de Experiencias</h3>
+            <h3>3.3. Ruta 3: "Religiosa y Espiritual"</h3>
+            <p>
+                Esta ruta presentó el mejor desempeño técnico. Se validó la infraestructura de la Parroquia y se realizó un <strong>enriquecimiento del producto</strong> mediante la inclusión de nuevos puntos de interés georreferenciados.
+            </p>
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Punto de Interés Agregado</th>
+                        <th>Validación</th>
+                        <th>Valor Agregado al Producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>La Gruta</td>
+                        <td><span class="badge bg-green">Operativo</span></td>
+                        <td>Sendero ecológico de baja dificultad. Acceso a manantial natural.</td>
+                    </tr>
+                    <tr>
+                        <td>Hogar Sagrada Familia</td>
+                        <td><span class="badge bg-green">Operativo</span></td>
+                        <td>Infraestructura de auditorio y capilla privada disponible para grupos.</td>
+                    </tr>
+                    <tr>
+                        <td>Centro Recreativo La Roca</td>
+                        <td><span class="badge bg-green">Operativo</span></td>
+                        <td>Capacidad de carga media/alta. Servicios de alimentación y recreación pasiva.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>4. Registro Geográfico</h2>
+            <p>Validación satelital de los polígonos de intervención en el casco urbano y zona rural de Rioblanco.</p>
+            <div class="map-container">
                 <iframe 
                     src="https://www.google.com/maps/d/u/0/embed?mid=1EeCNSPQgzt4-q0hSG2pO3uYdtmsqHpw&ehbc=2E312F&noprof=1" 
-                    width="100%" height="400" 
-                    style="border:0; border-radius: 10px;" 
-                    loading="lazy" allowfullscreen>
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
                 </iframe>
             </div>
-
-            <div class="tour-grid">
-                
-                <article class="tour-card">
-                    <div class="card-img img-r3">
-                        <span class="price-badge">Recomendada</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>🌿 Espiritualidad y Naturaleza</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">La experiencia más completa de conexión. Senderos, fe y descanso.</p>
-                        <ul>
-                            <li>Parroquia María Auxiliadora</li>
-                            <li>Sendero La Gruta</li>
-                            <li>Centro Recreativo La Roca</li>
-                        </ul>
-                        <a href="#" class="btn-card">Ver Detalles</a>
-                    </div>
-                </article>
-
-                <article class="tour-card">
-                    <div class="card-img img-r1">
-                        <span class="price-badge" style="background: var(--brand-secondary);">Cultural</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>🏛️ Huellas de Historia</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Recorrido urbano por la memoria y la resiliencia de nuestra gente.</p>
-                        <ul>
-                            <li>Árbol de la Vida</li>
-                            <li>Casa de la Cultura</li>
-                            <li>Calles Históricas</li>
-                        </ul>
-                        <a href="#" class="btn-card" style="background: var(--brand-secondary);">Ver Detalles</a>
-                    </div>
-                </article>
-
-                <article class="tour-card">
-                    <div class="card-img img-food">
-                        <span class="price-badge" style="background: #8e44ad;">Sabor</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>🍲 Ruta Gastronómica</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Los mejores sabores del sur del Tolima en tu mesa.</p>
-                        <ul>
-                            <li>Ricuras Hamanixi (Sancocho)</li>
-                            <li>Entre Granos (Café Especial)</li>
-                        </ul>
-                        <a href="#" class="btn-card" style="background: #8e44ad;">Ver Restaurantes</a>
-                    </div>
-                </article>
-
-                <article class="tour-card" style="opacity: 0.7;">
-                    <div class="card-img img-r2">
-                        <span class="price-badge" style="background: var(--brand-dark);">Próximamente</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>☕ Ruta del Café</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Estamos adecuando las fincas para recibirte pronto.</p>
-                        <ul>
-                            <li>Recolección de Grano</li>
-                            <li>Proceso de Secado</li>
-                        </ul>
-                        <a href="#" class="btn-card btn-disabled">No Disponible</a>
-                    </div>
-                </article>
-
-            </div>
-
         </section>
 
-    </div>
+        <section>
+            <h2>5. Conclusiones y Recomendaciones</h2>
+            <ol style="padding-left: 20px; text-align: justify;">
+                <li><strong>Aprobación Condicionada:</strong> Se aprueba la implementación inmediata de la Ruta 3 (Religiosa) y la Ruta 1 (Cultural), condicionada esta última a la advertencia sobre obras civiles en el Parque Principal.</li>
+                <li><strong>Bloqueo de Ruta 2:</strong> Se recomienda técnicamente no ofertar la Ruta Agroturística hasta que no se surta un proceso de formalización de proveedores rurales.</li>
+                <li><strong>Actualización del Inventario:</strong> Se deben incluir oficialmente en el inventario turístico municipal los hallazgos de "La Roca" y "Hogar Sagrada Familia".</li>
+            </ol>
+        </section>
 
-    <footer>
-        <h3>Ing. Joshua Sebastián Cárdenas Carrero</h3>
-        <p>Enlace Territorial - Rioblanco 2025</p>
-        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Informe generado para Beta Group Colombia SAS</p>
-    </footer>
+        <section style="background: #f1f8e9; border: 1px solid #c5e1a5; padding: 1.5rem;">
+            <h3 style="margin-top:0; background:none; padding:0; color: #2e7d32;">6. Anexos Entregables</h3>
+            <p style="margin-bottom: 0;">
+                Como valor agregado al contrato, se ha diseñado una visualización digital del producto turístico validado, lista para su presentación comercial.
+            </p>
+            <a href="Guia/" class="annex-link">
+                <i class="fas fa-folder-open"></i> Ver Anexo: Guía Turística Digital
+            </a>
+        </section>
+
+        <div class="signature-block">
+            <div class="sign-line">
+                Ing. Joshua Sebastián Cárdenas Carrero<br>
+                <span style="font-weight: normal; font-size: 0.85rem;">C.C. 1.010.049.536</span><br>
+                <span style="font-weight: normal; font-size: 0.85rem;">Enlace Territorial</span>
+            </div>
+            <div style="text-align: right; font-size: 0.8rem; color: #999;">
+                Documento generado digitalmente<br>
+                Bajo estándares de cumplimiento FONTUR
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
