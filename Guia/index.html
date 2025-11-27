@@ -218,6 +218,21 @@
         .img-coffee { background-image: url('https://images.unsplash.com/photo-1541620677592-e4e1017e8220?auto=format&fit=crop&w=800'); }
         .img-nature { background-image: url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800'); }
 
+        /* --- MAPA SECTION --- */
+        #mapa {
+            background: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .map-frame-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            border: 5px solid white;
+        }
+
         /* --- FOOTER --- */
         footer {
             background: var(--color-dark);
@@ -256,8 +271,9 @@
         <div class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#rutas">Experiencias</a>
-            <a href="#tips">Tips de Viaje</a>
-            <a href="#" class="btn-cta">Ver Mapa</a>
+            <a href="#tips">Tips</a>
+            <!-- BOTÓN ARREGLADO: Ahora lleva a la sección #mapa -->
+            <a href="#mapa" class="btn-cta">Ver Mapa</a>
         </div>
     </nav>
 
@@ -399,6 +415,26 @@
                 <p style="font-size: 0.9rem;">La señal es estable en el casco urbano. Disfruta de la desconexión digital en las veredas altas.</p>
             </div>
 
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: MAPA -->
+    <section id="mapa">
+        <div class="intro" style="padding-bottom: 2rem;">
+            <span class="section-tag">Ubicación</span>
+            <h2 class="section-title">Encuéntranos</h2>
+            <p>Rioblanco está ubicado al sur del Tolima. Explora el mapa para localizar nuestras rutas.</p>
+        </div>
+        <div class="map-frame-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Rioblanco,+Tolima&t=k&z=13&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </section>
 
