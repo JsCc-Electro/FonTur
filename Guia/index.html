@@ -3,283 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe y Guía Turística | Rioblanco</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Descubre Rioblanco | Joya del Sur del Tolima</title>
+    <link href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)" rel="stylesheet">
+    <link href="[https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;600;800&display=swap](https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;600;800&display=swap)" rel="stylesheet">
     
     <style>
         /* --- RESET Y BASES --- */
         * { box-sizing: border-box; }
-        body { margin: 0; padding: 0; background-color: #f4f6f7; color: #333; }
+        body { margin: 0; padding: 0; background-color: #f4f6f7; color: #333; font-family: 'Roboto', sans-serif; }
         html { scroll-behavior: smooth; }
 
-        /* --- COLORES --- */
+        /* --- COLORES Y VARIABLES --- */
         :root {
-            --tech-dark: #2c3e50;
-            --tech-blue: #3498db;
-            --tourist-green: #27ae60;
-            --tourist-orange: #e67e22;
+            --primary-dark: #2c3e50;
+            --accent-blue: #3498db;
+            --nature-green: #2ecc71;
+            --coffee-brown: #6f4e37;
+            --warm-orange: #e67e22;
+            --light-bg: #ecf0f1;
         }
 
-        /* --- BOTONES DE NAVEGACIÓN (HEADER) --- */
-        .nav-bar {
-            background: var(--tech-dark);
+        /* --- HEADER DE NAVEGACIÓN --- */
+       .nav-bar {
+            background: var(--primary-dark);
             padding: 1rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .nav-btn {
+       .nav-btn {
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        .nav-btn:hover { background: rgba(255,255,255,0.2); }
-        .nav-active { background: var(--tech-blue); }
-
-        /* --- SECCIÓN 1: INFORME TÉCNICO --- */
-        #informe {
-            font-family: 'Roboto', sans-serif;
-            padding: 4rem 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .tech-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            border-top: 5px solid var(--tech-dark);
-        }
-
-        .audit-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        .audit-table th, .audit-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .audit-table th { background: #f8f9fa; color: var(--tech-dark); }
-        
-        .status { font-weight: bold; padding: 5px 10px; border-radius: 4px; font-size: 0.85rem; }
-        .s-ok { background: #d4edda; color: #155724; }
-        .s-warn { background: #fff3cd; color: #856404; }
-        .s-err { background: #f8d7da; color: #721c24; }
-
-        /* --- SECCIÓN 2: GUÍA TURÍSTICA --- */
-        #guia {
+            padding: 8px 16px;
+            border-radius: 20px;
             font-family: 'Poppins', sans-serif;
-            background: white;
-            padding-bottom: 4rem;
-            border-top: 1px solid #ddd;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            background: rgba(255,255,255,0.1);
         }
+       .nav-btn:hover { background: var(--nature-green); transform: translateY(-2px); }
+       .nav-active { background: var(--accent-blue); }
 
-        .hero-guia {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rioblanco_Tolima.jpg/1200px-Rioblanco_Tolima.jpg');
+        /* --- HERO SECTION --- */
+       .hero-guia {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('[https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rioblanco_Tolima.jpg/1200px-Rioblanco_Tolima.jpg](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rioblanco_Tolima.jpg/1200px-Rioblanco_Tolima.jpg)');
             background-size: cover;
-            background-position: center;
-            height: 400px;
+            background-position: center 30%;
+            height: 500px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            padding: 20px;
+        }
+       .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+       .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 10px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 20px;
+            border-radius: 5px;
         }
 
-        .guia-container {
+        /* --- CONTENEDORES --- */
+       .section-container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 1rem;
-            margin-top: -60px; /* Efecto flotante */
+            padding: 4rem 1rem;
+        }
+        
+       .section-title {
+            text-align: center;
+            color: var(--primary-dark);
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             position: relative;
-            z-index: 10;
+            display: inline-block;
+            width: 100%;
+        }
+       .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--nature-green);
+            margin: 10px auto 0;
         }
 
-        .card-grid {
+        /* --- TARJETAS INFORMATIVAS (CLIMA, DATOS) --- */
+       .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
-
-        .tour-card {
+       .info-card {
             background: white;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-blue);
+        }
+       .info-icon { font-size: 2rem; color: var(--accent-blue); margin-bottom: 10px; }
+
+        /* --- TARJETAS TURÍSTICAS (SITIOS) --- */
+       .tour-card {
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
-            border: 1px solid #eee;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
-        .tour-card:hover { transform: translateY(-5px); }
-
-        .card-img {
-            height: 200px;
+       .tour-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        
+       .card-img {
+            height: 220px;
             background-color: #ddd;
             background-size: cover;
             background-position: center;
         }
         
-        /* IMÁGENES SEGURAS */
-        .img-r1 { background-image: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=600'); } /* Colonial */
-        .img-r2 { background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600'); filter: grayscale(100%); } /* Café BN */
-        .img-r3 { background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600'); } /* Naturaleza */
-        .img-food { background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600'); } /* Comida */
+        /* Imágenes de Placeholder Seguras */
+       .img-hermosas { background-image: url('[https://live.staticflickr.com/3932/15366914590_7fd733230a_b.jpg](https://live.staticflickr.com/3932/15366914590_7fd733230a_b.jpg)'); } /* Páramo genérico */
+       .img-cafe { background-image: url('[https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600](https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600)'); } /* Café */
+       .img-rio { background-image: url('[https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600](https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600)'); } /* Río/Naturaleza */
+       .img-urbana { background-image: url('[https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Iglesia_de_Rioblanco.jpg/800px-Iglesia_de_Rioblanco.jpg](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Iglesia_de_Rioblanco.jpg/800px-Iglesia_de_Rioblanco.jpg)'); } /* Iglesia */
 
-        .tour-body { padding: 1.5rem; flex-grow: 1; }
-        .tour-body h3 { margin: 0 0 10px 0; color: var(--tech-dark); }
-        .tour-body ul { padding-left: 20px; color: #555; }
+       .tour-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+       .tour-tag { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.75rem; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+       .tag-nature { background: #d4edda; color: #155724; }
+       .tag-coffee { background: #fff3cd; color: #856404; }
+       .tag-culture { background: #d6d8db; color: #383d41; }
+        
+       .tour-body h3 { margin: 0 0 10px 0; color: var(--primary-dark); font-family: 'Poppins', sans-serif; }
+       .tour-body p { color: #666; font-size: 0.95rem; line-height: 1.5; flex-grow: 1; }
+       .tour-footer { margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee; font-size: 0.9rem; color: #888; }
 
-        /* FOOTER */
+        /* --- SECCIÓN LOGÍSTICA (Transporte y Hoteles) --- */
+       .logistica-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--warm-orange);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+       .logistica-box h3 { margin-top: 0; color: var(--primary-dark); }
+       .list-unstyled { list-style: none; padding: 0; }
+       .list-unstyled li { margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px; }
+       .list-unstyled i { color: var(--warm-orange); width: 25px; }
+
+        /* --- FOOTER --- */
         footer {
-            background: var(--tech-dark);
+            background: var(--primary-dark);
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+       .footer-content p { opacity: 0.7; font-size: 0.9rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+           .hero-title { font-size: 2.2rem; }
+           .nav-bar { justify-content: space-around; }
         }
     </style>
 </head>
 <body>
 
     <nav class="nav-bar">
-        <a href="#informe" class="nav-btn">📊 Informe Técnico</a>
-        <a href="#guia" class="nav-btn nav-active">🌿 Ver Guía Turística</a>
+        <a href="#general" class="nav-btn"><i class="fas fa-info-circle"></i> Info General</a>
+        <a href="#que-hacer" class="nav-btn"><i class="fas fa-map-marked-alt"></i> Qué Hacer</a>
+        <a href="#gastronomia" class="nav-btn"><i class="fas fa-utensils"></i> Gastronomía</a>
+        <a href="#logistica" class="nav-btn nav-active"><i class="fas fa-bed"></i> Directorio</a>
     </nav>
 
-    <section id="informe">
-        <div class="tech-card">
-            <h1 style="margin-top:0; color: var(--tech-dark);">Informe de Ejecución Contractual</h1>
-            <p><strong>Contratista:</strong> Ing. Joshua Sebastián Cárdenas Carrero</p>
-            <p><strong>Objeto:</strong> Auditoría y validación de rutas turísticas en Rioblanco, Tolima.</p>
-            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-            
-            <h3><i class="fas fa-tasks"></i> Matriz de Hallazgos</h3>
-            <table class="audit-table">
-                <thead>
-                    <tr>
-                        <th>Ruta</th>
-                        <th>Estado</th>
-                        <th>Observación Clave</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>1. Huellas Culturales</strong></td>
-                        <td><span class="status s-warn">Restringida</span></td>
-                        <td>Parque Principal en obra. Acceso limitado.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2. Agroturística (Café)</strong></td>
-                        <td><span class="status s-err">Pendiente</span></td>
-                        <td>Falta infraestructura sanitaria en fincas.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3. Religiosa y Natural</strong></td>
-                        <td><span class="status s-ok">Operativa</span></td>
-                        <td>Validada y enriquecida con nuevos puntos.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div style="text-align: center;">
-            <p>⬇ Deslice hacia abajo para ver la Propuesta Visual ⬇</p>
+    <header class="hero-guia">
+        <h1 class="hero-title">Rioblanco</h1>
+        <div class="hero-subtitle">Naturaleza, Paz y el Mejor Café del Tolima</div>
+        <a href="#que-hacer" style="margin-top:20px; color:white; font-size:2rem; animation: bounce 2s infinite;"><i class="fas fa-chevron-down"></i></a>
+    </header>
+
+    <section id="general" class="section-container">
+        <h2 class="section-title">Datos del Viajero</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+            Ubicado al sur del Tolima, Rioblanco es un municipio que renace a través del ecoturismo y la caficultura de especialidad. Prepárate para una geografía quebrada y paisajes inolvidables.
+        </p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-temperature-high"></i></div>
+                <h3>Clima</h3>
+                <p><strong>Urbano:</strong> 24°C (Cálido)</p>
+                <p><strong>Montaña:</strong> 12°C - 18°C</p>
+                <p><strong>Páramo:</strong> 5°C - 10°C</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-road"></i></div>
+                <h3>Distancia</h3>
+                <p>A <strong>Ibagué:</strong> ~5-6 horas (Bus)</p>
+                <p>A <strong>Bogotá:</strong> ~8-9 horas</p>
+                <p>Vía Chaparral (Pavimentada/Destapada)</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-wallet"></i></div>
+                <h3>Economía</h3>
+                <p>Lleva <strong>Efectivo</strong>.</p>
+                <p>Pocos cajeros automáticos.</p>
+                <p>Principal producto: Café Especial.</p>
+            </div>
         </div>
     </section>
 
-    <section id="guia">
-        <div class="hero-guia">
-            <div>
-                <h1 style="font-size: 3rem; text-transform: uppercase; margin: 0; text-shadow: 2px 2px 5px black;">Memorias Vivas</h1>
-                <p style="font-size: 1.2rem; font-weight: 300;">Descubre Rioblanco</p>
-            </div>
-        </div>
-
-        <div class="guia-container">
+    <section id="que-hacer" class="section-container" style="background: white; border-radius: 20px;">
+        <h2 class="section-title">Experiencias Imperdibles</h2>
+        
+        <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
             
-            <div style="background: white; padding: 1rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="text-align: center; margin-top: 0; color: var(--tech-dark);">🗺️ Mapa de Experiencias</h3>
-                <iframe 
-                    width="100%" height="400" 
-                    style="border:0; border-radius: 10px;" 
-                    loading="lazy" allowfullscreen 
-                    src="https://maps.google.com/maps?q=Rioblanco,+Tolima&t=k&z=14&ie=UTF8&iwloc=&output=embed">
-                </iframe>
+            <article class="tour-card">
+                <div class="card-img img-hermosas"></div>
+                <div class="tour-body">
+                    <span class="tour-tag tag-nature">Ecoturismo</span>
+                    <h3>PNN Las Hermosas</h3>
+                    <p>El tesoro natural de la región. Un complejo de lagunas glaciares y páramos donde nace el agua del Tolima. Hogar del Oso de Anteojos.</p>
+                    <div class="tour-footer">
+                        <i class="fas fa-hiking"></i> <strong>Requiere:</strong> Guía experto y buen estado físico.
+                    </div>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <div class="card-img img-cafe"></div>
+                <div class="tour-body">
+                    <span class="tour-tag tag-coffee">Agroturismo</span>
+                    <h3>Ruta del Café Especial</h3>
+                    <p>Visita fincas certificadas (como las de ASOCEAS). Aprende sobre el proceso de beneficio y cata uno de los cafés más premiados del mundo.</p>
+                    <div class="tour-footer">
+                        <i class="fas fa-mug-hot"></i> <strong>Tip:</strong> Compra café pergamino o tostado local.
+                    </div>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <div class="card-img img-rio"></div>
+                <div class="tour-body">
+                    <span class="tour-tag tag-nature">Relax</span>
+                    <h3>Balneario Las Sardinas</h3>
+                    <p>Ubicado en la vereda El Cambrín. Piscinas naturales de agua cristalina ideales para un "paseo de olla" y refrescarse del calor.</p>
+                    <div class="tour-footer">
+                        <i class="fas fa-water"></i> <strong>Acceso:</strong> Vehículo o Mototaxi desde el pueblo.
+                    </div>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <div class="card-img img-urbana"></div>
+                <div class="tour-body">
+                    <span class="tour-tag tag-culture">Cultura</span>
+                    <h3>Parroquia María Auxiliadora</h3>
+                    <p>Icono arquitectónico del casco urbano con influencia Salesiana. Disfruta del Parque Principal remodelado y la vida local.</p>
+                    <div class="tour-footer">
+                        <i class="fas fa-camera"></i> <strong>Mejor hora:</strong> Atardecer y domingos de mercado.
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="gastronomia" class="section-container">
+        <h2 class="section-title">Sabores de la Montaña</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            
+            <div class="logistica-box" style="flex: 1; min-width: 300px; border-left-color: var(--coffee-brown);">
+                <h3><i class="fas fa-coffee"></i> Tiendas de Café</h3>
+                <p>No te vayas sin probar un filtrado en:</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-store"></i> <strong>Entre Granos:</strong> Café de especialidad local.</li>
+                    <li><i class="fas fa-store"></i> <strong>Tiendas del Parque:</strong> Ambiente tradicional.</li>
+                </ul>
             </div>
 
-            <div class="card-grid">
-                
-                <article class="tour-card">
-                    <div class="card-img img-r3"></div>
-                    <div class="tour-body">
-                        <span class="status s-ok" style="margin-bottom:10px; display:inline-block;">⭐ Recomendada</span>
-                        <h3>Espiritualidad y Naturaleza</h3>
-                        <p>Vive una experiencia de conexión profunda.</p>
-                        <ul>
-                            <li>Parroquia María Auxiliadora</li>
-                            <li>Sendero La Gruta</li>
-                            <li>Hogar Sagrada Familia</li>
-                            <li>Descanso en "La Roca"</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="tour-card">
-                    <div class="card-img img-r1"></div>
-                    <div class="tour-body">
-                        <span class="status s-warn" style="margin-bottom:10px; display:inline-block;">🏛️ Cultural</span>
-                        <h3>Huellas de Historia</h3>
-                        <p>Recorrido urbano por la memoria.</p>
-                        <ul>
-                            <li>Árbol de la Vida</li>
-                            <li>Casa de la Cultura</li>
-                        </ul>
-                        <small style="color:#d35400;">*Precaución: Obras en el parque.</small>
-                    </div>
-                </article>
-
-                <article class="tour-card">
-                    <div class="card-img img-food"></div>
-                    <div class="tour-body">
-                        <span class="status s-ok" style="margin-bottom:10px; display:inline-block;">🍲 Gastronomía</span>
-                        <h3>Sabores Locales</h3>
-                        <p>Disfruta la auténtica sazón.</p>
-                        <ul>
-                            <li><strong>Ricuras Hamanixi:</strong> Sancocho típico.</li>
-                            <li><strong>Entre Granos:</strong> Café especial.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="tour-card" style="opacity: 0.7;">
-                    <div class="card-img img-r2"></div>
-                    <div class="tour-body">
-                        <span class="status s-err" style="margin-bottom:10px; display:inline-block;">⏳ Próximamente</span>
-                        <h3>Ruta del Café</h3>
-                        <p>Estamos adecuando las mejores fincas para garantizar tu experiencia.</p>
-                    </div>
-                </article>
-
+            <div class="logistica-box" style="flex: 1; min-width: 300px; border-left-color: var(--warm-orange);">
+                <h3><i class="fas fa-utensils"></i> Platos Típicos</h3>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-drumstick-bite"></i> <strong>Lechona Tolimense:</strong> Sin arroz, solo arveja y carne.</li>
+                    <li><i class="fas fa-leaf"></i> <strong>Tamal:</strong> Desayuno obligado los domingos.</li>
+                    <li><i class="fas fa-fish"></i> <strong>Viudo de Capaz:</strong> En zonas ribereñas.</li>
+                </ul>
+                <p><em>Recomendado:</em> Gastrobar "La Oficina de Toño" o Asaderos locales.</p>
             </div>
+
+        </div>
+    </section>
+
+    <section id="logistica" class="section-container" style="background: #eef2f3; border-radius: 20px;">
+        <h2 class="section-title">Directorio Útil</h2>
+
+        <div class="info-grid">
+            
+            <div class="logistica-box" style="border-left: 5px solid var(--accent-blue); margin-bottom: 0;">
+                <h3><i class="fas fa-bus"></i> Transporte</h3>
+                <p><strong>Cootransrio:</strong> Principal empresa de buses.</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-route"></i> Ruta: Ibagué - Espinal - Guamo - Chaparral - Rioblanco.</li>
+                    <li><i class="fas fa-clock"></i> Frecuencias diarias desde la Terminal de Ibagué.</li>
+                    <li><i class="fas fa-shuttle-van"></i> <strong>Rural:</strong> Jeeps Willys en el parque principal (salidas 5:00 AM - 2:00 PM).</li>
+                </ul>
+            </div>
+
+            <div class="logistica-box" style="border-left: 5px solid var(--nature-green); margin-bottom: 0;">
+                <h3><i class="fas fa-bed"></i> Dónde Dormir</h3>
+                <p>Oferta hotelera básica y familiar.</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-hotel"></i> <strong>Hospedaje El Dorado:</strong> (Centro) - Económico y limpio.</li>
+                    <li><i class="fas fa-home"></i> <strong>Hotel Central / Residencias:</strong> Opciones alrededor del parque.</li>
+                    <li><i class="fas fa-tree"></i> <strong>Fincas Agroturísticas:</strong> Preguntar en asociaciones cafeteras.</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
     <footer>
-        <p>Informe presentado a <strong>Beta Group Colombia SAS</strong> - Proyecto FONTUR</p>
-        <p style="font-size: 0.8rem; opacity: 0.7;">Noviembre 2025</p>
+        <div class="footer-content">
+            <h3>Rioblanco, Tolima</h3>
+            <p>Guía desarrollada con fines informativos y turísticos.</p>
+            <p>Recuerda: <strong>El turismo responsable construye paz.</strong></p>
+            <div style="margin-top: 20px;">
+                <i class="fab fa-instagram" style="margin: 0 10px; font-size: 1.5rem;"></i>
+                <i class="fab fa-facebook" style="margin: 0 10px; font-size: 1.5rem;"></i>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.8rem;">© 2025 Proyecto de Promoción Turística</p>
+        </div>
     </footer>
 
 </body>
