@@ -1,427 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"><!DOCTYPE html>
-<html lang="es">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rioblanco: Memorias Vivas | Guía Oficial</title>
+    <title>Informe de Ejecución FONTUR | Rioblanco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- RESET Y VARIABLES --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
-            --brand-dark: #2c3e50;
-            --brand-gold: #c0a16b;
-            --brand-green: #27ae60;
-            --brand-blue: #2980b9;
-            --text-gray: #555;
-            --bg-light: #f9f9f9;
+            --header-bg: #1a252f;
+            --section-title: #2c3e50;
+            --accent-color: #3498db;
+            --bg-gray: #f4f6f7;
+            --border-color: #dcdcdc;
+            --text-color: #333;
         }
-        
-        body { font-family: 'Lato', sans-serif; background-color: var(--bg-light); color: var(--text-gray); line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--brand-dark); }
 
-        /* --- NAVEGACIÓN --- */
-        nav { background: white; padding: 1rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: bold; font-size: 1.2rem; color: var(--brand-dark); text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a { text-decoration: none; color: var(--brand-dark); margin-left: 20px; font-weight: 700; transition: 0.3s; }
-        .nav-links a:hover { color: var(--brand-gold); }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-        /* --- HEADER HERO (PORTADA) --- */
+        /* CABECERA INSTITUCIONAL */
         header {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Rioblanco_Tolima.jpg/1200px-Rioblanco_Tolima.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
-        }
-        header h1 { font-size: 4rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); }
-        header p { font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; }
-        .btn-scroll { margin-top: 30px; display: inline-block; padding: 12px 30px; border: 2px solid white; color: white; text-decoration: none; border-radius: 50px; transition: 0.3s; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
-        .btn-scroll:hover { background: white; color: var(--brand-dark); }
-
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1rem; }
-
-        /* --- SECCIÓN INFORME TÉCNICO (Compacto) --- */
-        .tech-summary { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 4rem; border-left: 5px solid var(--brand-dark); }
-        .tech-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
-        .tech-tag { background: var(--brand-dark); color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; font-weight: bold; }
-        
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-        th { color: var(--brand-dark); }
-        .status-dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; }
-        .dot-green { background-color: var(--brand-green); }
-        .dot-orange { background-color: #f39c12; }
-        .dot-red { background-color: #c0392b; }
-
-        /* --- GUÍA TURÍSTICA (Estilo Revista) --- */
-        .section-title { text-align: center; margin-bottom: 3rem; }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
-        .section-title span { width: 60px; height: 3px; background: var(--brand-gold); display: block; margin: 0 auto; }
-
-        /* MAPA */
-        .map-frame { width: 100%; height: 450px; border: 0; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 4rem; }
-
-        /* TARJETAS DE RUTAS */
-        .tour-card {
-            display: flex; flex-direction: column; background: white; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.4s ease; margin-bottom: 3rem;
-        }
-        .tour-card:hover { transform: translateY(-5px); }
-
-        @media (min-width: 768px) {
-            .tour-card { flex-direction: row; align-items: stretch; height: 350px; }
-            .tour-card.reverse { flex-direction: row-reverse; }
-            .card-img { width: 50%; height: auto; }
-            .card-content { width: 50%; padding: 3rem; overflow-y: auto; }
+            background-color: var(--header-bg);
+            color: white;
+            padding: 2rem 0;
+            border-bottom: 5px solid var(--accent-color);
         }
 
-        .card-img {
-            background-size: cover; background-position: center; min-height: 250px;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        /* IMÁGENES SEGURAS */
-        .bg-nature { background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800'); }
-        .bg-culture { background-image: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800'); }
-        .bg-coffee { background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800'); filter: grayscale(100%); }
-        .bg-food { background-image: url('https://images.unsplash.com/photo-1574484284008-59d7aa3f0f37?auto=format&fit=crop&w=800'); }
 
-        .card-content { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
-        .card-label { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; font-weight: bold; margin-bottom: 10px; display: block; }
-        .lbl-green { color: var(--brand-green); }
-        .lbl-blue { color: var(--brand-blue); }
-        .lbl-gold { color: var(--brand-gold); }
-        .lbl-red { color: #c0392b; }
+        .header-content h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
 
-        .tour-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-        .tour-highlights { list-style: none; margin-top: 1.5rem; }
-        .tour-highlights li { margin-bottom: 8px; position: relative; padding-left: 20px; font-size: 0.95rem; color: #666; }
-        .tour-highlights li::before { content: '•'; color: var(--brand-gold); font-size: 1.5rem; position: absolute; left: 0; top: -5px; }
+        .header-content p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
 
-        /* FOOTER */
-        footer { background: #1a252f; color: white; text-align: center; padding: 4rem 1rem; font-size: 0.9rem; }
-        footer p { opacity: 0.6; }
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* SECCIONES DEL INFORME */
+        section {
+            background: white;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            max-width: 900px;
+        }
+
+        h2 {
+            color: var(--section-title);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            color: var(--section-title);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            background-color: #ecf0f1;
+            padding: 8px;
+            border-left: 4px solid var(--section-title);
+        }
+
+        /* TABLAS DE DATOS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--header-bg);
+            color: white;
+            font-weight: 500;
+        }
+
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* ESTADOS Y ALERTAS */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .st-ok { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .st-warn { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        .st-err { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+        .alert-box {
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .alert-warning { background-color: #fff3cd; color: #856404; border-left: 4px solid #ffc107; }
+        .alert-info { background-color: #d1ecf1; color: #0c5460; border-left: 4px solid #17a2b8; }
+        .alert-danger { background-color: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
+
+        /* MAPA TÉCNICO */
+        .map-wrapper {
+            border: 1px solid var(--border-color);
+            padding: 5px;
+            background: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Rioblanco</div>
-        <div class="nav-links">
-            <a href="#informe">Informe</a>
-            <a href="#experiencias">Experiencias</a>
-            <a href="#mapa">Mapa</a>
-        </div>
-    </nav>
-
     <header>
-        <div>
-            <h1>Memorias Vivas</h1>
-            <p>Donde la historia, la fe y la naturaleza se encuentran</p>
-            <a href="#experiencias" class="btn-scroll">Descubrir Rutas</a>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <div id="informe" class="tech-summary">
-            <div class="tech-header">
-                <h3 style="margin:0;">📊 Informe de Ejecución Contractual</h3>
-                <span class="tech-tag">Proyecto FONTUR</span>
-            </div>
-            <p style="margin-bottom: 1rem; font-size: 0.9rem;">
-                <strong>Auditoría Técnica:</strong> Se presenta el estado real de operatividad de las rutas diseñadas, tras la validación en campo realizada en Noviembre 2025.
-            </p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ruta Validada</th>
-                        <th>Estado Operativo</th>
-                        <th>Observación Técnica</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>1. Huellas Culturales</strong></td>
-                        <td><span class="status-dot dot-orange"></span>Con Restricciones</td>
-                        <td>Intervención de obra civil en Parque Principal. Se ajustó el cierre logístico.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2. Agroturística (Café)</strong></td>
-                        <td><span class="status-dot dot-red"></span>No Operativa</td>
-                        <td>Pendiente formalización de fincas con infraestructura sanitaria (baños/cocina).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3. Religiosa y Natural</strong></td>
-                        <td><span class="status-dot dot-green"></span>100% Validada</td>
-                        <td>Ruta enriquecida con 3 nuevos atractivos (Gruta, Hogar, La Roca).</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="mapa" class="section-title">
-            <h2>Mapa de Experiencias</h2>
-            <span></span>
-        </div>
-        
-        <iframe class="map-frame" src="https://maps.google.com/maps?q=Rioblanco,+Tolima&t=k&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
-
-        <div id="experiencias" class="section-title" style="margin-top: 4rem;">
-            <h2>Nuestras Rutas Turísticas</h2>
-            <span></span>
-            <p style="margin-top: 15px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Hemos diseñado recorridos que conectan el alma del viajero con la esencia de nuestro territorio. Descubre cuál es tu camino.
-            </p>
-        </div>
-
-        <article class="tour-card">
-            <div class="card-img bg-nature"></div>
-            <div class="card-content">
-                <span class="card-label lbl-green">⭐ Ruta Recomendada</span>
-                <h3>Espiritualidad y Naturaleza</h3>
-                <p>
-                    Un viaje para desconectar del ruido y reconectar con el espíritu. Esta ruta combina la devoción histórica con la majestuosidad de nuestros paisajes verdes. Camina por senderos de silencio, purifica tu mente en manantiales naturales y descansa en un entorno seguro.
-                </p>
-                <ul class="tour-highlights">
-                    [cite_start]<li><strong>Parroquia María Auxiliadora:</strong> Joya arquitectónica y centro de fe. [cite: 270]</li>
-                    [cite_start]<li><strong>Sendero La Gruta:</strong> Caminata ecológica hacia aguas de manantial. [cite: 193]</li>
-                    [cite_start]<li><strong>Hogar Sagrada Familia:</strong> Espacios exclusivos para el retiro y la meditación. [cite: 180]</li>
-                    [cite_start]<li><strong>Centro Recreativo La Roca:</strong> Cierre con piscinas y gastronomía. [cite: 176]</li>
-                </ul>
-            </div>
-        </article>
-
-        <article class="tour-card reverse">
-            <div class="card-img bg-culture"></div>
-            <div class="card-content">
-                <span class="card-label lbl-blue">🏛️ Historia y Memoria</span>
-                <h3>Huellas Culturales</h3>
-                <p>
-                    Rioblanco es tierra de resiliencia. Recorre las calles de nuestro casco urbano y descubre cómo el arte y la memoria han tejido una nueva historia. Desde el simbólico Árbol de la Vida hasta las manos artesanas de nuestra gente.
-                </p>
-                <ul class="tour-highlights">
-                    [cite_start]<li><strong>Árbol de la Vida:</strong> Símbolo viviente en el corazón del pueblo. [cite: 139]</li>
-                    [cite_start]<li><strong>Casa de la Cultura:</strong> Museo vivo de nuestras tradiciones. [cite: 255]</li>
-                    [cite_start]<li><strong>Parroquia Principal:</strong> Testigo de la transformación social. [cite: 287]</li>
-                </ul>
-                <div style="background: #fff3cd; color: #856404; padding: 10px; font-size: 0.85rem; border-radius: 5px; margin-top: 15px;">
-                    <i class="fas fa-exclamation-triangle"></i> <strong>Nota:</strong> El Parque Principal se encuentra actualmente en remodelación para mejorar tu experiencia.
+        <div class="container">
+            <div class="header-content">
+                <h1>Informe de Ejecución y Resultados</h1>
+                <p>Verificación de Rutas Turísticas - Municipio de Rioblanco, Tolima</p>
+                <div class="meta-info">
+                    <span><strong>Contratista:</strong> Joshua Sebastián Cárdenas Carrero</span>
+                    <span><strong>Proyecto:</strong> FONTUR - Beta Group Colombia SAS</span>
+                    <span><strong>Fecha de Corte:</strong> Noviembre 2025</span>
                 </div>
             </div>
-        </article>
-
-        <article class="tour-card">
-            <div class="card-img bg-food"></div>
-            <div class="card-content">
-                <span class="card-label lbl-gold">🍲 Sabores Locales</span>
-                <h3>Gastronomía Tolimense</h3>
-                <p>
-                    Ninguna visita está completa sin probar nuestra sazón. Hemos seleccionado los mejores fogones donde el sabor a leña y la tradición campesina se sirven en la mesa.
-                </p>
-                <ul class="tour-highlights">
-                    [cite_start]<li><strong>Ricuras Hamanixi:</strong> Expertos en el auténtico Sancocho de Gallina y Tamal. [cite: 152]</li>
-                    [cite_start]<li><strong>Restaurante Entre Granos:</strong> El lugar ideal para un café de origen y postres típicos. [cite: 150]</li>
-                </ul>
-            </div>
-        </article>
-
-        <article class="tour-card reverse" style="opacity: 0.8;">
-            <div class="card-img bg-coffee"></div>
-            <div class="card-content">
-                <span class="card-label lbl-red">⏳ Próximamente</span>
-                <h3>Ruta del Café: Del Grano a la Taza</h3>
-                <p>
-                    Estamos preparando una experiencia sensorial única en el corazón de nuestras montañas cafeteras. Pronto podrás vivir el proceso de recolección y tostión de la mano de nuestros campesinos.
-                </p>
-                <p style="font-size: 0.9rem; margin-top: 10px; color: #777;">
-                    [cite_start]<em>*Actualmente en fase de adecuación de fincas para garantizar estándares de calidad turística.</em> [cite: 236]
-                </p>
-            </div>
-        </article>
-
-    </div>
-
-    <footer>
-        <p><strong>Ing. Joshua Sebastián Cárdenas Carrero</strong></p>
-        <p>Enlace Territorial - Proyecto FONTUR Tolima 2025</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">Informe de Ejecución y Validación de Campo</p>
-    </footer>
-
-</body>
-</html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe Rutas Turísticas - Rioblanco</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #27ae60;
-            --accent: #e67e22;
-            --bg: #f4f7f6;
-            --text: #333;
-            --card-bg: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* HEADER */
-        header {
-            background: linear-gradient(135deg, var(--primary), #34495e);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        header h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        header .badge { background-color: var(--accent); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-top: 15px; }
-
-        /* CONTAINER */
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-
-        /* CARDS */
-        .card { background: var(--card-bg); border-radius: 10px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-        .section-title { border-left: 5px solid var(--secondary); padding-left: 15px; margin: 3rem 0 1.5rem; color: var(--primary); }
-
-        /* GRID */
-        .poi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .poi-item { border: 1px solid #eee; border-radius: 8px; padding: 1rem; background: #fafafa; }
-        .poi-item h4 { margin-top: 0; color: var(--primary); }
-
-        /* ESTADOS */
-        .status-pill { display: inline-block; padding: 5px 12px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
-        .status-valid { background-color: #d5f5e3; color: #196f3d; }
-        .status-alert { background-color: #fce8d6; color: #d35400; }
-        .status-pending { background-color: #ebedef; color: #5d6d7e; }
-
-        /* --- BOTÓN DE ENLACE A LA GUÍA (ESTILO IMPORTANTE) --- */
-        .btn-container {
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 2px solid #ddd;
-            margin-top: 3rem;
-            background-color: #fff;
-            border-radius: 10px;
-        }
-
-        .boton-seccion {
-            display: inline-block !important;
-            background: linear-gradient(to right, #e67e22, #d35400) !important; /* Naranja fuerte */
-            color: #ffffff !important;
-            padding: 18px 40px !important;
-            font-size: 1.2rem !important;
-            font-weight: bold !important;
-            text-decoration: none !important;
-            border-radius: 50px !important;
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4) !important;
-            transition: transform 0.3s ease;
-            border: 2px solid white;
-        }
-
-        .boton-seccion:hover {
-            transform: scale(1.05);
-            background: linear-gradient(to right, #d35400, #e67e22) !important;
-            cursor: pointer;
-        }
-
-        footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #7f8c8d; }
-    </style>
-</head>
-
-<body> 
-    <header>
-        <h1>Informe de Ejecución</h1>
-        <h2>Verificación de Rutas Turísticas - Rioblanco, Tolima</h2>
-        <div class="badge">PROYECTO FONTUR TOLIMA</div>
+        </div>
     </header>
 
-   <div style="max-width: 1000px; margin: -2rem auto 3rem; padding: 0 1rem; position: relative; z-index: 20;">
-        <div style="background: white; padding: 1rem; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-            <h3 style="margin-top: 0; color: var(--primary); text-align: center;">🗺️ Mapa de Sitios Validados</h3>
+    <section>
+        <h2>1. Información General del Contrato</h2>
+        <table style="width:100%">
+            <tr>
+                <th style="width:30%">Objeto</th>
+                [cite_start]<td>Verificación de rutas turísticas, registro fotográfico y acompañamiento a la socialización[cite: 6].</td>
+            </tr>
+            <tr>
+                <th>Alcance</th>
+                [cite_start]<td>Validación operativa de tiempos, distancias, infraestructura y existencia real de puntos de interés[cite: 7, 8].</td>
+            </tr>
+            <tr>
+                <th>Metodología</th>
+                [cite_start]<td>Recorrido in situ ("Cliente Incógnito") y auditoría de infraestructura[cite: 347].</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>2. Validación de Rutas Turísticas</h2>
+        <p>A continuación se detallan los hallazgos de la verificación en campo conforme a las obligaciones contractuales.</p>
+
+        <h3>A. Ruta 1: "Huellas Culturales" (Memoria y Casco Urbano)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Punto de Interés</th>
+                    <th>Estado</th>
+                    <th>Observación Técnica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Parque Principal</td>
+                    <td><span class="status-badge st-warn">Restringido</span></td>
+                    [cite_start]<td>Vías de acceso cerradas por obras de mejoramiento de infraestructura[cite: 11, 82].</td>
+                </tr>
+                <tr>
+                    <td>Casa de la Cultura</td>
+                    <td><span class="status-badge st-ok">Validado</span></td>
+                    <td>Estructura en buen estado. [cite_start]Exhibición de artesanías operativa[cite: 24, 25].</td>
+                </tr>
+                <tr>
+                    <td>Cierre (Charco El Toro)</td>
+                    <td><span class="status-badge st-err">No Recomendado</span></td>
+                    <td>Vía rústica/empinada. Acceso difícil. [cite_start]Se propone cambio operativo[cite: 33, 34, 111].</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="alert-box alert-warning">
+            [cite_start]<strong>Recomendación Estratégica:</strong> Formalizar el cambio del punto de cierre al <strong>Centro Recreativo La Roca</strong> para garantizar seguridad y accesibilidad[cite: 111].
+        </div>
+
+        <h3>B. Ruta 3: "Religiosa y Espiritual" (Peregrinación)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Punto de Interés</th>
+                    <th>Estado</th>
+                    <th>Observación Técnica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Parroquia María Auxiliadora</td>
+                    <td><span class="status-badge st-ok">Validado</span></td>
+                    <td>Alto flujo de visitantes. [cite_start]Infraestructura adecuada[cite: 13, 49].</td>
+                </tr>
+                <tr>
+                    <td>Centro Recreativo La Roca</td>
+                    <td><span class="status-badge st-ok">Nuevo Hallazgo</span></td>
+                    <td>Punto enriquecido. [cite_start]Ofrece piscina, canchas y servicios sanitarios[cite: 52, 92].</td>
+                </tr>
+                <tr>
+                    <td>Hogar Sagrada Familia</td>
+                    <td><span class="status-badge st-ok">Nuevo Hallazgo</span></td>
+                    <td>Espacios aptos para meditación y retiros. [cite_start]Acceso validado[cite: 56, 116].</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="alert-box alert-info">
+            [cite_start]<strong>Resultado:</strong> Ruta validada y enriquecida con nuevos atractivos que aumentan el valor experiencial del producto[cite: 115, 116].
+        </div>
+
+        <h3>C. Ruta 2: "Agroturística" (Café)</h3>
+        <div class="alert-box alert-danger">
+            <strong>ESTADO: VALIDACIÓN PENDIENTE</strong>
+            <br><br>
+            [cite_start]No ha sido posible validar esta ruta debido a la falta de identificación de fincas cafeteras que cumplan con los Criterios Mínimos de Operación Turística (Baños, Cocina, Capacidad de Carga)[cite: 112, 113].
+            <br>
+            [cite_start]<em>Se recomienda priorizar la gestión de actores locales antes de su comercialización[cite: 114].</em>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Registro Geográfico</h2>
+        <p>Mapa de ubicación de los puntos validados en el municipio de Rioblanco.</p>
+        <div class="map-wrapper">
             <iframe 
-                width="100%" height="450" 
-                style="border:0; border-radius: 8px;" 
-                loading="lazy" allowfullscreen 
-                src=""https://www.google.com/maps/d/u/0/embed?mid=1EeCNSPQgzt4-q0hSG2pO3uYdtmsqHpw&ehbc=2E312F&noprof=1"">
+                src="https://www.google.com/maps/d/u/0/embed?mid=1EeCNSPQgzt4-q0hSG2pO3uYdtmsqHpw&ehbc=2E312F&noprof=1" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
             </iframe>
         </div>
-    </div>
+    </section>
 
-    <div class="container">
-        
-        <div class="card">
-            <h3>Resumen Ejecutivo</h3>
-            <p>Este informe digital presenta los resultados de la validación en campo realizada durante noviembre de 2025. El objetivo fue auditar la viabilidad operativa, logística y de infraestructura de las rutas propuestas.</p>
-        </div>
-
-        <h2 class="section-title">Ruta 1: Huellas Culturales</h2>
-        <div class="card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <h3>Enfoque: Memoria y Patrimonio Urbano</h3>
-                <span class="status-pill status-alert">Validada con Restricciones</span>
-            </div>
-            <div class="poi-grid">
-                <div class="poi-item">
-                    <h4>📍 Parque Principal</h4>
-                    <p><strong>Alerta:</strong> Accesos restringidos por obras.</p>
-                </div>
-                <div class="poi-item">
-                    <h4>⚠️ Cambio Operativo</h4>
-                    <p>Se sustituye el cierre en "Charco El Toro" por el <strong>Centro Recreativo La Roca</strong>.</p>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-title">Ruta 3: Religiosa y Espiritual</h2>
-        <div class="card" style="border-left: 5px solid var(--secondary);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <h3>Enfoque: Peregrinación</h3>
-                <span class="status-pill status-valid">Validada y Enriquecida</span>
-            </div>
-            <div class="poi-grid">
-                <div class="poi-item"><h4>⛪ Parroquia María Auxiliadora</h4><p>Validada.</p></div>
-                <div class="poi-item"><h4>🏊 Centro Recreativo La Roca</h4><p>Nuevo hallazgo.</p></div>
-                <div class="poi-item"><h4>🧘 Hogar Sagrada Familia</h4><p>Nuevo hallazgo.</p></div>
-                <div class="poi-item"><h4>💧 La Gruta</h4><p>Validada.</p></div>
-            </div>
-        </div>
-
-        <h2 class="section-title">Ruta 2: Agroturística</h2>
-        <div class="card" style="opacity: 0.9;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <h3>Enfoque: Café</h3>
-                <span class="status-pill status-pending">Validación Pendiente</span>
-            </div>
-            <p>Se requiere formalizar acuerdos con productores locales antes de operar.</p>
-        </div>
-
-        <div class="btn-container">
-            <h3 style="color: var(--primary);">Visualización Turística</h3>
-            <p>Para ver la propuesta comercial y visual de estas rutas, acceda aquí:</p>
-            <br>
-            <a href="Guia/" class="boton-seccion">
-                <i class="fas fa-map-marked-alt"></i> VER GUÍA TURÍSTICA ➜
-            </a>
-        </div>
-
-        <div class="author-box" style="margin-top: 2rem; background: #eee; padding: 1rem; border-radius: 8px; text-align: center;">
-            <p><strong>Ing. Joshua Sebastián Cárdenas Carrero</strong> | Enlace Territorial Rioblanco</p>
-        </div>
-
-    </div>
+    <section>
+        <h2>4. Conclusiones Técnicas</h2>
+        <ul>
+            [cite_start]<li><strong>Viabilidad Operativa:</strong> Las Rutas 1 y 3 son viables operativamente, sujeto a las recomendaciones de seguridad y logística planteadas[cite: 109, 115].</li>
+            [cite_start]<li><strong>Infraestructura Crítica:</strong> Se alerta sobre las obras en el Parque Principal que afectan la logística de llegada[cite: 110].</li>
+            [cite_start]<li><strong>Gestión Pendiente:</strong> La Ruta 2 requiere una fase adicional de estructuración de producto con los caficultores locales[cite: 114].</li>
+        </ul>
+        <br>
+        <p style="text-align: right; font-weight: bold;">
+            Atentamente,<br><br>
+            Joshua Sebastián Cárdenas Carrero<br>
+            Enlace Territorial - Rioblanco
+        </p>
+    </section>
 
     <footer>
-        <p>Documento de carácter informativo para la gestión del proyecto FONTUR Tolima.</p>
+        <p>Informe Técnico Confidencial - Uso exclusivo Proyecto FONTUR Tolima 2025</p>
     </footer>
 
 </body>
